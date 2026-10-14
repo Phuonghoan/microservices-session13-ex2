@@ -24,9 +24,16 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
 
+                        // API đăng ký của Bài 1
                         .requestMatchers(
                                 HttpMethod.POST,
                                 "/api/auth/register"
+                        ).permitAll()
+
+                        // API test JWT của Bài 2
+                        .requestMatchers(
+                                HttpMethod.GET,
+                                "/api/auth/test-token"
                         ).permitAll()
 
                         .anyRequest().authenticated()
